@@ -1,0 +1,58 @@
+@import 'library';
+
+.btn {
+    border-radius: .22rem;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    min-inline-size: min-content;
+    width: fit-content;
+    background-color: $light-bg;
+    color: #000000;
+    block-size: 2.68rem;
+    font-size: 1rem;
+    padding: 0.55rem 1.33rem 0.66rem;
+}
+
+body[data-type="dark"] .btn {
+    background-color: $dark-bg;
+    color: #fff;
+}
+
+.btn.primary {
+    background-color: $primary;
+    color: #fff;
+}
+
+body[data-type="dark"] .btn.primary {
+    background-color: $primary;
+}
+
+@mixin button {
+    border-radius: .22rem;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    min-inline-size: min-content;
+    width: fit-content;
+    background-color: $light-bg;
+    color: #000000;
+    block-size: 2.68rem;
+    font-size: 1rem;
+    padding: 0.55rem 1.33rem 0.66rem;
+}
+
+@mixin primary {
+    background-color: $primary;
+    color: #fff;
+}

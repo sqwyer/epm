@@ -1,0 +1,20 @@
+$primary-light: #0084ff;
+$primary-dark: #005bb1;
+$primary: var(--primary-color);
+body {
+    --primary-color: #{$primary-light};
+}
+body[data-type="dark"] {
+    --primary-color: #{$primary-dark};
+}
+
+$lightest: #e3e7f0;
+$lighter: #b8bfce;
+$light: #727988;
+$dark: #30353d;
+$darkest: #0e1114;
+
+$lightest-bg: rgba(211,215,223,.1);
+
+$light-bg: rgba(211,215,223,.4);
+$dark-bg:rgba(53, 54, 56, 0.4);

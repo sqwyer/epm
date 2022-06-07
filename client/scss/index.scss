@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import 'library';
+@import 'btn';
+@import 'nav';
+@import 'header';
+
+body {
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body[data-type="dark"] {
+    background-color: $darkest;
+    color: $light;
+}
+
+.theme-lighter {
+    background-color: $lightest-bg;
+}
+body[data-type="dark"] .theme-lighter {
+    background-color: $dark-bg;
+}
+
+.h-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pad-top-3 {
+    padding-top: 3rem;
+}
+.pad-bottom-3 {
+    padding-bottom: 3rem;
+}
+
+.container {
+    padding: 3rem 20rem;
+
+    header {
+        padding-bottom: 3rem;
+    }
+    &.short {
+        padding: 1rem 20rem;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    > .col.w-25 {
+        flex-basis: 25%;
+    }
+
+    > .col.w-33 {
+        flex-basis: 33.3%;
+    }
+
+    > .col.w-50 {
+        flex-basis: 50%;
+    }
+
+    > .col.w-auto {
+        flex: 0;
+    }
+
+    > .col.fill {
+        flex: 1;
+    }
+    > .col.styled {
+        padding: 1rem 1.5rem;
+        border-radius: 10pt;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    > .col.styled p {
+        color: $dark;
+    }
+}
+body[data-type="dark"] .row {
+    > .col.styled p {
+        color: $light;
+    }
+}
+.row.gap-1 {
+    gap: 1rem;
+}
+.row.gap-2 {
+    gap: 2rem;
+}
+
+h3 {
+    color: $dark;
+}
+
+body[data-type="dark"] h3 {
+    color: $lightest;
+}
+
+hr {
+    border: 1px solid $light-bg;
+    width: 100%;
+}
+
+body[data-type="dark"] hr {
+    border: 1px solid $dark-bg;
+}
+
+@media only screen and (max-width: 2000px){
+    .container {
+        padding: 3rem 15rem;
+        &.short {
+            padding: 1rem 15rem;
+        }
+    }
+    .nav {
+        margin: 0 15rem;
+    }
+}
+
+@media only screen and (max-width: 1800px){
+    .container {
+        padding: 3rem 12rem;
+        &.short {
+            padding: 1rem 12rem;
+        }
+    }
+    .nav {
+        margin: 0 12rem;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    header, .w-header {
+        max-width: 70vw;
+    }
+    header h1 {
+        font-size: 400%;
+    }
+    .container {
+        padding: 3rem 8rem;
+        &.short {
+            padding: 1rem 8rem;
+        }
+    }
+    .nav {
+        margin: 0 8rem;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    header, .w-header {
+        max-width: initial;
+    }
+    .container {
+        padding: 3rem;
+        &.short {
+            padding: 1rem 3rem;
+        }
+    }
+    .nav {
+        margin: 0 3rem;
+    }
+}
