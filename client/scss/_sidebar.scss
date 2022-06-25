@@ -1,4 +1,5 @@
 @use 'btn';
+@import 'library';
 
 .sidebar {
     display: flex;
@@ -6,11 +7,20 @@
     gap: 0.5rem;
     flex-basis: 15%;
     padding-right: 1rem;
-    border-right: 2px solid #eee;
+    border-right: 2px solid $light-bg;
+}
+
+body[data-type="dark"] .sidebar {
+    border-right: 2px solid $dark-bg;
 }
 
 .sidebar a {
     @include btn.button;
     width: 100%;
     display: flex;
+}
+
+body[data-type="dark"] .sidebar a {
+    background: $dark-bg;
+    color: $lighter;
 }
