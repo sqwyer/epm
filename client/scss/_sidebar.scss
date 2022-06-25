@@ -1,0 +1,16 @@
+@use 'btn';
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-basis: 15%;
+    padding-right: 1rem;
+    border-right: 2px solid #eee;
+}
+
+.sidebar a {
+    @include btn.button;
+    width: 100%;
+    display: flex;
+}

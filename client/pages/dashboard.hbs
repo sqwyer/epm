@@ -11,8 +11,14 @@
 </head>
 <body>
     {{> nav}}
-    <div class="container short">
-        Hello
+    <div class="container short no-top">
+        <div class="row gapped">
+            {{> sidebar}}
+            <div class="col fill top">
+                <label class="page">@ Projects</label>
+                {{!-- <h1>You aren't in any projects yet.</h1> --}}
+            </div>
+        </div>
     </div>
 </body>
 </html>
