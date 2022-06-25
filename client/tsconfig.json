@@ -3,7 +3,7 @@
         "rootDir": "src",
         "outDir": "dist",
         "target": "ES2019",
-        "module": "CommonJS",
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "removeComments": true
     },
 }
