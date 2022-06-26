@@ -43,6 +43,22 @@ label.page {
     font-weight: bolder;
 }
 
+a {
+    color: $primary-dark;
+}
+
+body[data-type="dark"] a {
+    color: $primary-light;
+}
+
+.light {
+    color: $light;
+}
+
+body[data-type="dark"] .light {
+    color: $light;
+}
+
 .container {
     padding: 3rem 20rem;
 
@@ -118,8 +134,8 @@ h3 {
     color: $dark;
 }
 
-body[data-type="dark"] h3 {
-    color: $lightest;
+body[data-type="dark"] h1 {
+    color: #ffffff;
 }
 
 hr {
