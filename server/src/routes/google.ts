@@ -11,7 +11,8 @@ GoogleRouter.get('/auth/google/callback', authenticate('google', {
     failureRedirect: '/auth/google/failure'
 }));
 GoogleRouter.get('/auth/google/failure', (req, res) => {
-    res.render('../auth/fail')
+    if(req.user) res.redirect('/');
+    else res.render('../auth/fail');
 });
 
 export { GoogleRouter }
