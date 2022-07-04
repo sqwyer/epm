@@ -3,7 +3,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "server/dost/index.js"
+            "dest": "server/dist/index.js"
         }
     ]
 }
