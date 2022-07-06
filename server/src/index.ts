@@ -27,8 +27,8 @@ app.set('views', `${cwd}/client/pages`);
 
 app.use(GoogleRouter);
 
-if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/client/_css`));
-else app.use('/css', express.static(`${cwd}/client/css`));
+if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/client/css`));
+else app.use('/css', express.static(`${cwd}/client/_css`));
 
 app.use('/js', express.static(`${cwd}/client/dist`));
 
