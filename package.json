@@ -25,7 +25,7 @@
   "scripts": {
     "serve": "npx concurrently \"npx nodemon server/src/index.ts\" \"npx sass --watch client/scss/index.scss:client/_css/index.css\" \"npx tsc-watch -p ./client/tsconfig.json\"",
     "start": "node server/dist/index.js",
-    "build": "yarn install && cd server && npx tsc && cd ../client && tsc && sass --no-source-map scss/index.scss:css/index.min.css --style=compressed && postcss css/index.min.css --no-map --replace --use autoprefixer",
+    "build": "cd server && npx tsc && cd ../client && tsc && sass --no-source-map scss/index.scss:css/index.min.css --style=compressed && postcss css/index.min.css --no-map --replace --use autoprefixer",
     "push": "git push -u origin prealpha"
   },
   "keywords": [
