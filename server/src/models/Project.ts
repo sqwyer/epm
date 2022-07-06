@@ -1,8 +1,7 @@
 import { Schema, createConnection, Types } from 'mongoose';
 import { Project as ProjectType } from './types';
-import { config } from 'dotenv';
 
-if(process.env.NODE_ENV != 'production') config();
+if(process.env.NODE_ENV != 'production') require('dotenv').config();
 
 const conn = createConnection(process.env.MONGO_URI);
 

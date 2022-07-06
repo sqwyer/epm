@@ -3,10 +3,9 @@ import * as session from 'express-session';
 import * as passport from 'passport';
 import * as hbs from 'hbs';
 import { protect } from './middleware/protected';
-import { config } from 'dotenv';
 import { GoogleRouter } from './routes/google';
 
-if(process.env.NODE_ENV != 'production') config();
+if(process.env.NODE_ENV != 'production') require('dotenv').config();
 const PORT = Number(process.env.PORT) || 3000;
 
 require('./auth');

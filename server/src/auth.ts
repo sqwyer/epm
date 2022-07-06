@@ -1,9 +1,8 @@
 import * as passport from 'passport';
 import { Strategy } from 'passport-google-oauth2';
-import { config } from 'dotenv';
 import { User } from './models/User';
 
-if(process.env.NODE_ENV != 'production') config();
+if(process.env.NODE_ENV != 'production') require('dotenv').config();
 
 passport.use(new Strategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
