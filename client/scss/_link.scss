@@ -1,0 +1,7 @@
+a:not(.ex) {
+    color: $primary-light;
+}
+
+body[data-type='dark'] a:not(.ex) {
+    color: $primary-dark;
+}

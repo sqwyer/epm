@@ -5,11 +5,13 @@
 }
 
 @import 'library';
+@import 'link';
 @import 'btn';
 @import 'nav';
 @import 'header';
 @import 'sidebar';
 @import 'table';
+@import 'question';
 
 body {
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -25,6 +27,38 @@ body[data-type="dark"] {
 }
 body[data-type="dark"] .theme-lighter {
     background-color: $dark-bg;
+}
+
+.L {
+    margin-left: 1rem;
+}
+
+.R {
+    margin-right: 1rem;
+}
+
+.T {
+    margin-top: 1rem;
+}
+
+.B {
+    margin-top: 1rem;
+}
+
+.l {
+    margin-left: .5rem;
+}
+
+.r {
+    margin-right: .5rem;
+}
+
+.t {
+    margin-top: .5rem;
+}
+
+.b {
+    margin-bottom: .5rem;
 }
 
 .h-center {

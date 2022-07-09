@@ -1,12 +1,14 @@
+// color sys 1
+
 $primary-light: #0084ff;
 $primary-dark: #005bb1;
-$primary: var(--primary-color);
 body {
     --primary-color: #{$primary-light};
 }
 body[data-type="dark"] {
     --primary-color: #{$primary-dark};
 }
+$primary: var(--primary-color);
 
 $lightest: #e3e7f0;
 $lighter: #b8bfce;
@@ -19,3 +21,17 @@ $lightest-bg: rgba(211,215,223,.1);
 
 $light-bg: rgba(211,215,223,.4);
 $dark-bg:rgba(53, 54, 56, 0.4);
+
+// color sys 2
+$g100: #0e1114;
+$g200: #1b1d23;
+$g300: #242830;
+$g400: #2d3038;
+$g500: #30353d;
+$g600: #4f5258;
+$g700: #727988;
+$g800: #a2a9ba;
+$g900: #b8bfce;
+$g1000: #d5dae5;
+$g1100: #e3e7f0;
+$g1200: #ebeef5;

@@ -18,6 +18,11 @@ body[data-type="dark"] .sidebar {
     @include btn.button;
     width: 100%;
     display: flex;
+    color: $darker;
+}
+
+.sidebar a:hover {
+    color: $darkest;
 }
 
 body[data-type="dark"] .sidebar a {

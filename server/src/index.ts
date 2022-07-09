@@ -9,9 +9,10 @@ import { DevRouter } from './dev/index';
 if(process.env.NODE_ENV != 'production') require('dotenv').config();
 const PORT = Number(process.env.PORT) || 3000;
 
-require('./auth');
-
 const app = express();
+
+require('./auth');
+require('./hbs');
 
 const cwd = process.cwd();
 

@@ -16,7 +16,29 @@
             {{> sidebar}}
             <div class="col fill top">
                 <label class="page">@ Projects</label>
-                <table style="margin-top: 1rem">
+                <table class="T">
+                    <tr>
+                        <th>Name</th>
+                        <th>Tasks</th>
+                        <th>Members</th>
+                    </tr>
+                    {{#ifem projects}}
+                        <tr class="nohover">
+                            <td>You aren't in any projects yet. <a class="question l">?</a></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    {{else}}
+                        {{#each projects}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{tasks.length}}</td>
+                                <td>{{members.length}}</td> {{!-- this will prob be complicated later (show PFPs)--}}
+                            </tr>
+                        {{/each}}
+                    {{/ifem}}
+                </table>
+                {{!-- <table style="margin-top: 1rem">
                     <tr>
                         <th>Name</th>
                         <th>Tasks</th>
@@ -32,7 +54,7 @@
                         <td>3</td>
                         <td>7</td>
                     </tr>
-                </table>
+                </table> --}}
                 {{!-- <h1>You aren't in any projects yet.</h1> --}}
             </div>
         </div>

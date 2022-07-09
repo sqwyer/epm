@@ -1,0 +1,28 @@
+.question {
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background: $g1200;
+    color: $g800!important;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+.question:hover {
+    cursor: pointer;
+    background: $g1100;
+    transition: 0.2s ease background;
+}
+
+body[data-type="dark"] .question {
+    background: $g500;
+    color: $g1000;
+}
+
+body[data-type="dark"] .question:hover {
+    background: $g400;
+}
