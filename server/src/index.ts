@@ -4,6 +4,7 @@ import * as passport from 'passport';
 import * as hbs from 'hbs';
 import { protect } from './middleware/protected';
 import { GoogleRouter } from './routes/google';
+import { DevRouter } from './dev/index';
 
 if(process.env.NODE_ENV != 'production') require('dotenv').config();
 const PORT = Number(process.env.PORT) || 3000;
@@ -32,7 +33,10 @@ else app.use('/css', express.static(`${cwd}/client/css`));
 
 app.use('/js', express.static(`${cwd}/client/dist`));
 
+if(process.env.NODE_ENV != 'production') app.use(DevRouter)
+
 app.get('/', protect, (req, res) => {
+    console.log(req.user);
     res.render('dashboard', {user: req.user});
 });
 
