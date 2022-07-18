@@ -14,5 +14,5 @@ const ProjectSchema = new Schema<ProjectType>({
     id: Types.ObjectId
 });
 
-const Project = conn.model('User', ProjectSchema, 'users');
+const Project = conn.model('Project', ProjectSchema, 'projects');
 export { Project }
