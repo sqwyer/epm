@@ -37,7 +37,7 @@ app.use('/js', express.static(`${cwd}/client/dist`));
 if(process.env.NODE_ENV != 'production') app.use(DevRouter)
 
 app.get('/', protect, (req, res) => {
-    console.log(req.user);
+    // console.log(req.user);
     res.render('dashboard', {user: req.user});
 });
 

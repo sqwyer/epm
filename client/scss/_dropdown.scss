@@ -1,0 +1,60 @@
+@import 'library';
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .drops {
+    position: absolute;
+    display: none;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 2px solid $g1200;
+    background: #fff;
+    border-radius: .22rem;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.dropdown .drops a {
+    padding: 1rem .5rem;
+    color: $g800;
+    transition: 0.2s color;
+    min-width: 9rem;
+    text-align: center;
+    font-size: .9rem;
+}
+
+.dropdown .drops a:not(:first-child) {
+    border-top: 2px solid $g1200
+}
+
+.dropdown .drops a:hover {
+    // background: $g1200;
+    cursor: pointer;
+    color: #000;
+}
+
+.dropdown:hover, .dropdown .preview:hover {
+    .drops {
+        display: flex;
+    }
+}
+
+body[data-type='dark'] .dropdown .drops {
+    background-color: $darkest;
+    border: 2px solid $darker;
+}
+
+body[data-type='dark'] .dropdown .drops a:not(:first-child) {
+    border-top: 2px solid $darker;
+}
+
+body[data-type='dark'] .dropdown .drops a {
+    color: $g800;
+}
+
+body[data-type='dark'] .dropdown .drops a:hover {
+    color: #fff;
+}
