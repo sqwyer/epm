@@ -1,0 +1,83 @@
+@use 'btn';
+@import 'library';
+
+form {
+    strong {
+        color: red!important;
+        font-weight: inherit;
+    }
+
+    .opt {
+        color: $g800;
+        font-weight: normal;
+        font-size: 0.9rem;
+    }
+
+    input, select {
+        @include btn.button;
+    
+        font-size: 0.9rem;
+        border: 1px solid $g1000;
+    }
+
+    select {
+        transition: 0.2s border ease;
+        &:hover {
+            border: 1px solid $g900;
+        }
+    }
+
+    input {
+        font-weight: 500;
+        background: #fff;
+        cursor: initial;
+    }
+
+    div.row > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    hr {
+        margin: 1rem 0;
+    }
+
+    p:not(.desc) {
+        color: #000;
+        font-weight: bold;
+    }
+}
+
+body:not([data-type="dark"]) form p.desc {
+    color: $g800;
+}
+
+
+body[data-type="dark"] form {
+    p:not(.desc) {
+        color: #fff;
+    }
+
+    .opt {
+        color: $g600;
+    }
+
+    input, select {
+        border: 1px solid $g300;
+        // background-color: #000;
+    }
+
+    select {
+        background: $dark-bg;
+        color: $g1000;
+        &:hover {
+            border: 1px solid $g500;
+        }
+    }
+
+    input {
+        background: $darkest;
+        color: #fff;
+    }
+} 

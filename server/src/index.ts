@@ -5,6 +5,7 @@ import * as hbs from 'hbs';
 import { protect } from './middleware/protected';
 import { GoogleRouter } from './routes/google';
 import { DevRouter } from './dev/index';
+import { CreateRouter } from './routes/create';
 
 if(process.env.NODE_ENV != 'production') require('dotenv').config();
 const PORT = Number(process.env.PORT) || 3000;
@@ -28,6 +29,7 @@ app.set('view engine', 'hbs');
 app.set('views', `${cwd}/client/pages`);
 
 app.use(GoogleRouter);
+app.use('/create', CreateRouter)
 
 if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/client/_css`));
 else app.use('/css', express.static(`${cwd}/client/css`));

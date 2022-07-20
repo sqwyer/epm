@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPM Create New Project</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    {{> nav}}
+    
+
+    <div class="container short no-top">
+        <div class="row gapped">
+            {{> sidebar}}
+            <form class="col fill top" {{!-- action="/create/project" method="POST" --}}>
+                <label class="page">@ Create</label>
+                <h1>Create a new project</h1>
+                <p class="desc">Projects will help you store and manage information regarding your EAST Projects.</p>
+                <hr />
+                <div class="row gapped">
+                    <div>
+                        <p>Owner <strong>*</strong></p>
+                        <select>
+                            <option value="self" selected>{{user.email}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Project Name <strong>*</strong></p>
+                        <input>
+                    </div>
+                </div>
+                {{!-- <hr /> --}}
+                <br />
+                <div class="vert sgapped">
+                    <p>Project Description <span class="opt">(optional)</span></p>
+                    <input class="block w-100">
+                </div>
+                <br />
+                <button type="submit" class="btn primary">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/index.js"></script>
+</body>
+</html>

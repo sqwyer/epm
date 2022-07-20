@@ -65,9 +65,10 @@ body[data-type="dark"] .nav > ul.links > li > a, body[data-type="dark"] .nav .li
 }
 
 .nav > ul.links > li > a:not(.primary):hover, .nav .link:not(.primary):hover {
-    background-color:$light-bg;
+    background-color:$g1200;
 }
 
 body[data-type="dark"] .nav > ul.links > li > a:not(.primary):hover, body[data-type="dark"] .nav .link:not(.primary):hover {
-    background-color: $dark-bg;
+    // background-color: $dark-bg;
+    background-color: $g200;
 }
