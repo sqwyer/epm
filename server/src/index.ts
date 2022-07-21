@@ -7,6 +7,7 @@ import { GoogleRouter } from './routes/google';
 import { DevRouter } from './dev/index';
 import { CreateRouter } from './routes/create';
 import { APIRouter } from './routes/api/index';
+import { ProjectRouter } from './routes/api/project';
 
 if(process.env.NODE_ENV != 'production') require('dotenv').config();
 const PORT = Number(process.env.PORT) || 3000;
@@ -28,11 +29,13 @@ app.use(pInit());
 app.use(pSession());
 app.set('view engine', 'hbs');
 app.set('views', `${cwd}/client/pages`);
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.use(GoogleRouter);
 app.use('/api', APIRouter)
 app.use('/create', CreateRouter)
+app.use('/project', ProjectRouter)
 
 if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/client/_css`));
 else app.use('/css', express.static(`${cwd}/client/css`));
@@ -42,7 +45,6 @@ app.use('/js', express.static(`${cwd}/client/dist`));
 if(process.env.NODE_ENV != 'production') app.use(DevRouter)
 
 app.get('/', protect, (req, res) => {
-    // console.log(req.user);
     res.render('dashboard', {user: req.user});
 });
 

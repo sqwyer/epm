@@ -1,7 +1,7 @@
 import { Types } from 'mongoose';
 
 type Permission =
-    'manager'
+    '*'
     |'manage_roles'
     |'manage_tasks'
     |'manage_events'
@@ -19,16 +19,15 @@ type ProjectRole = {
     permissions: Permission[]
 }
 
-type Project = {
+interface Project {
     name: string,
     members: ProjectMember[],
     owner: string, // will be googleid of user
     description: string,
     roles: ProjectRole[],
-    id: Types.ObjectId
 }
 
-type User = {
+interface User {
     id: string,
     displayName: string,
     language: string,

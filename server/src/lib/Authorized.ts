@@ -1,9 +1,9 @@
 import { User } from "../models/User";
 import { User as UserType } from '../models/types';
-import { Document } from "mongoose";
+import { HydratedDocument } from "mongoose";
 
 class Authorized {
-    public user: Document<UserType>;
+    public user: HydratedDocument<UserType>;
     /**
      * 
      * @param {string} id Google ID
@@ -19,7 +19,7 @@ class Authorized {
      */
     async setUser(id: string) {
         return new Promise(async (resolve: Function, reject: Function) => {
-            await User.findOne({id}, (err: any, user: Document<UserType>) => {
+            await User.findOne({id}, (err: any, user: HydratedDocument<UserType>) => {
                 if(err) {
                     console.error(err);
                     reject(err);
