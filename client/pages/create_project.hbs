@@ -8,6 +8,10 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="/css/index.css">
+
+    <script src="/js/index.js" defer></script>
+    <script src="/js/post.js"></script>
+    <script src="/js/create_project.js" defer></script>
 </head>
 <body>
     {{> nav}}
@@ -16,7 +20,7 @@
     <div class="container short no-top">
         <div class="row gapped">
             {{> sidebar}}
-            <form class="col fill top" {{!-- action="/create/project" method="POST" --}}>
+            <form class="col fill top" id="form" action="javascript:void(0);">
                 <label class="page">@ Create</label>
                 <h1>Create a new project</h1>
                 <p class="desc">Projects will help you store and manage information regarding your EAST Projects.</p>
@@ -24,27 +28,25 @@
                 <div class="row gapped">
                     <div>
                         <p>Owner <strong>*</strong></p>
-                        <select>
+                        <select id="owner">
                             <option value="self" selected>{{user.email}}</option>
                         </select>
                     </div>
                     <div>
                         <p>Project Name <strong>*</strong></p>
-                        <input>
+                        <input id="name">
                     </div>
                 </div>
                 {{!-- <hr /> --}}
                 <br />
                 <div class="vert sgapped">
                     <p>Project Description <span class="opt">(optional)</span></p>
-                    <input class="block w-100">
+                    <input id="desc" class="block w-100">
                 </div>
                 <br />
                 <button type="submit" class="btn primary">Create</button>
             </form>
         </div>
     </div>
-
-    <script src="/js/index.js"></script>
 </body>
 </html>

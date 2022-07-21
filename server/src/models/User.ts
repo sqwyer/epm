@@ -12,7 +12,8 @@ const UserSchema = new Schema<UserType>({
     language: String,
     email: String,
     emails: Array,
-    picture: String
+    picture: String,
+    projects: Array
 });
 
 const User = conn.model('User', UserSchema, 'users');

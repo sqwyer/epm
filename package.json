@@ -23,7 +23,7 @@
   "version": "1.0.0",
   "main": "server/dist/index.js",
   "scripts": {
-    "serve": "npx concurrently \"npx nodemon server/src/index.ts\" \"npx sass --watch client/scss/index.scss:client/_css/index.css\" \"npx tsc-watch -p ./client/tsconfig.json\"",
+    "serve": "npx concurrently \"npx nodemon --ignore ./client/ server/src/index.ts\" \"npx sass --watch client/scss/index.scss:client/_css/index.css\" \"npx tsc-watch -p ./client/tsconfig.json\"",
     "start": "node server/dist/index.js",
     "build": "cd server && npx tsc && cd ../client && tsc && sass --no-source-map scss/index.scss:css/index.css --style=compressed && postcss css/index.css --no-map --replace --use autoprefixer",
     "push": "git push -u origin prealpha"

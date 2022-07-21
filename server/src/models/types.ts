@@ -34,7 +34,8 @@ type User = {
     language: string,
     email: string,
     emails: string[],
-    picture: string
+    picture: string,
+    projects: string[]
 }
 
 export { Project, ProjectMember, ProjectRole, Permission, User }

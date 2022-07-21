@@ -19,7 +19,8 @@ function(request, accessToken, refreshToken, profile, done) {
                 displayName: profile.displayName,
                 email: profile.email,
                 emails: profile.emails,
-                picture: profile.picture
+                picture: profile.picture,
+                projects: []
             });
             newUser.save(err2 => {
                 if(err2) done(`Failed to save user: ${err2}`,null);

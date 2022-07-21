@@ -6,6 +6,7 @@ import { protect } from './middleware/protected';
 import { GoogleRouter } from './routes/google';
 import { DevRouter } from './dev/index';
 import { CreateRouter } from './routes/create';
+import { APIRouter } from './routes/api/index';
 
 if(process.env.NODE_ENV != 'production') require('dotenv').config();
 const PORT = Number(process.env.PORT) || 3000;
@@ -27,8 +28,10 @@ app.use(pInit());
 app.use(pSession());
 app.set('view engine', 'hbs');
 app.set('views', `${cwd}/client/pages`);
+app.use(express.urlencoded({extended: false}));
 
 app.use(GoogleRouter);
+app.use('/api', APIRouter)
 app.use('/create', CreateRouter)
 
 if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/client/_css`));
