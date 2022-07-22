@@ -19,12 +19,20 @@ type ProjectRole = {
     permissions: Permission[]
 }
 
+type ProjectTask = {
+    label: string,
+    id: Types.ObjectId,
+    assigned: string[],
+    due: string
+}
+
 interface Project {
     name: string,
     members: ProjectMember[],
     owner: string, // will be googleid of user
     description: string,
     roles: ProjectRole[],
+    tasks: ProjectTask[]
 }
 
 interface User {
@@ -34,7 +42,7 @@ interface User {
     email: string,
     emails: string[],
     picture: string,
-    projects: string[]
+    projects: Types.ObjectId[]
 }
 
 export { Project, ProjectMember, ProjectRole, Permission, User }

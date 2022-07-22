@@ -7,7 +7,8 @@ import { GoogleRouter } from './routes/google';
 import { DevRouter } from './dev/index';
 import { CreateRouter } from './routes/create';
 import { APIRouter } from './routes/api/index';
-import { ProjectRouter } from './routes/api/project';
+import { ProjectRouter } from './routes/project';
+import { User } from './lib/user';
 
 if(process.env.NODE_ENV != 'production') require('dotenv').config();
 const PORT = Number(process.env.PORT) || 3000;
@@ -44,8 +45,13 @@ app.use('/js', express.static(`${cwd}/client/dist`));
 
 if(process.env.NODE_ENV != 'production') app.use(DevRouter)
 
-app.get('/', protect, (req, res) => {
-    res.render('dashboard', {user: req.user});
+app.get('/', protect, async (req, res) => {
+    await User.getProjects(req.user.id).then(projects => {
+        res.render('dashboard', {user: req.user, projects});
+    }).catch(err => {
+        console.error(err);
+        res.render('dashboard', {user: req.user, projects: []})
+    })
 });
 
 app.post('/auth/logout', (req, res) => {

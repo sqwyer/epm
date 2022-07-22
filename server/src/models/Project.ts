@@ -11,6 +11,7 @@ const ProjectSchema = new Schema<ProjectType>({
     owner: String, // will be googleid of user
     description: String,
     roles: Array,
+    tasks: Array
 });
 
 const Project = conn.model('Project', ProjectSchema, 'projects');

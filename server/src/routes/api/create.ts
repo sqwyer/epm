@@ -1,10 +1,10 @@
 import { Router, Request, Response } from 'express';
 import { Types, HydratedDocument } from 'mongoose';
 import { objectContainsAll } from '../../lib/containsAll';
-import { User } from '../../lib/user';
 import { protect } from '../../middleware/protected';
 import { Project } from '../../models/Project';
 import { ProjectMember, ProjectRole, User as UserType } from '../../models/types';
+import { User } from '../../models/User';
 
 const APICreateRouter = Router();
 
@@ -24,7 +24,8 @@ APICreateRouter.post('/project', protect, (req: Request, res: Response) => {
                 members: [member],
                 owner: req.body.owner,
                 description: req.body.desc,
-                roles: [manager]
+                roles: [manager],
+                tasks: []
             })
 
             project.save(async (error?: any) => {
@@ -32,27 +33,26 @@ APICreateRouter.post('/project', protect, (req: Request, res: Response) => {
                     err('An error occured saving to the database.')
                     console.error(error);
                 } else {
-                    await User.find(req.user.id)
-                        .then((user: HydratedDocument<UserType>) => {
-                            user.projects.push(project._id)
-                            user.markModified('projects')
-                            user.save((error?: any) => {
-                                if(error) {
-                                    err('An error occured saving to the database.')
-                                    console.error(error);
-                                } else {
-                                    res.json({
-                                        status: 'success',
-                                        project,
-                                        recommendedRedirect: `/project/${project._id.toString()}`
-                                    })
-                                }
-                            })
+                    try {
+                        const user: HydratedDocument<UserType> = await User.findById(req.user.id).exec();
+                        user.projects.push(project._id)
+                        user.markModified('projects')
+                        user.save((error?: any) => {
+                            if(error) {
+                                err('An error occured saving to the database.')
+                                console.error(error);
+                            } else {
+                                res.json({
+                                    status: 'success',
+                                    project,
+                                    recommendedRedirect: `/project/${project._id.toString()}`
+                                })
+                            }
                         })
-                        .catch((error?: any) => {
-                            err('An error occured saving to the database.')
-                            console.error(error);
-                        })
+                    } catch(err) {
+                        err('An error occured saving to the database.')
+                        console.error(error);
+                    }
                 }
             })
         }
