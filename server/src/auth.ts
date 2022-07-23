@@ -1,6 +1,6 @@
 import * as passport from "passport"
 import { Strategy } from "passport-google-oauth2"
-import { User } from "./models/User"
+import { UserModel } from "./models/User"
 
 if (process.env.NODE_ENV != "production") require("dotenv").config()
 
@@ -13,10 +13,10 @@ passport.use(
             passReqToCallback: true,
         },
         function (request, accessToken, refreshToken, profile, done) {
-            User.findOne({ id: profile.id }, function (err, user) {
+            UserModel.findOne({ id: profile.id }, function (err, user) {
                 if (err) done(`Failed while finding user: ${err}`, null)
                 else if (!user) {
-                    let newUser = new User({
+                    let newUser = new UserModel({
                         id: profile.id,
                         displayName: profile.displayName,
                         email: profile.email,

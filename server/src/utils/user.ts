@@ -1,7 +1,6 @@
 import { HydratedDocument } from "mongoose"
-import { Project as ProjectType, User as UserType } from "../models/types"
-import { User as UserModel } from "../models/User"
-import { Project as ProjectModel } from "../models/Project"
+import { UserModel, UserType } from "../models/User"
+import { ProjectModel, ProjectType } from "../models/Project"
 // import { Authorized } from "./Authorized";
 
 class User {

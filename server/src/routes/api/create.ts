@@ -1,14 +1,9 @@
 import { Router, Request, Response } from "express"
 import { Types, HydratedDocument } from "mongoose"
-import { objectContainsAll } from "../../lib/containsAll"
+import { objectContainsAll } from "../../utils/containsAll"
 import { protect } from "../../middleware/protected"
-import { Project } from "../../models/Project"
-import {
-    ProjectMember,
-    ProjectRole,
-    User as UserType,
-} from "../../models/types"
-import { User } from "../../models/User"
+import { ProjectModel, ProjectMember, ProjectRole } from "../../models/Project"
+import { UserModel, UserType } from "../../models/User"
 
 const APICreateRouter = Router()
 
@@ -32,7 +27,7 @@ APICreateRouter.post("/project", protect, (req: Request, res: Response) => {
                 id: new Types.ObjectId(),
             }
             const member: ProjectMember = { id: req.user.id, role: manager.id }
-            const project: any = new Project({
+            const project: any = new ProjectModel({
                 name: req.body.name,
                 members: [member],
                 owner: req.body.owner,
@@ -48,7 +43,7 @@ APICreateRouter.post("/project", protect, (req: Request, res: Response) => {
                 } else {
                     try {
                         const user: HydratedDocument<UserType> =
-                            await User.findById(req.user.id).exec()
+                            await UserModel.findById(req.user.id).exec()
                         user.projects.push(project._id)
                         user.markModified("projects")
                         user.save((error?: any) => {

@@ -8,7 +8,7 @@ import { DevRouter } from "./dev/index"
 import { CreateRouter } from "./routes/create"
 import { APIRouter } from "./routes/api/index"
 import { ProjectRouter } from "./routes/project"
-import { User } from "./lib/user"
+import { User } from "./utils/user"
 
 if (process.env.NODE_ENV != "production") require("dotenv").config()
 const PORT = Number(process.env.PORT) || 3000
