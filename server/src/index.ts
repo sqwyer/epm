@@ -23,13 +23,13 @@ const cwd = process.cwd();
 const pInit = passport.initialize.bind(passport);
 const pSession = passport.session.bind(passport);
 
-hbs.registerPartials(`${cwd}/client/partials`);
+hbs.registerPartials(`${cwd}/views/partials`);
 
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
 app.use(pInit());
 app.use(pSession());
 app.set('view engine', 'hbs');
-app.set('views', `${cwd}/client/pages`);
+app.set('views', `${cwd}/views/pages`);
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -38,10 +38,10 @@ app.use('/api', APIRouter)
 app.use('/create', CreateRouter)
 app.use('/project', ProjectRouter)
 
-if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/client/_css`));
-else app.use('/css', express.static(`${cwd}/client/css`));
+if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/public/_css`));
+else app.use('/css', express.static(`${cwd}/public/css`));
 
-app.use('/js', express.static(`${cwd}/client/dist`));
+app.use('/js', express.static(`${cwd}/public/dist`));
 
 if(process.env.NODE_ENV != 'production') app.use(DevRouter)
 
