@@ -12,13 +12,13 @@
             1fr
         );
     font-weight: 600;
-    border-bottom: 2px solid $light-bg;
+    border-bottom: 2px solid $light-border;
     align-items: center;
     align-content: center;
 }
 
 body[data-type="dark"] .nav {
-    border-bottom: 2px solid $dark-bg;
+    border-bottom: 2px solid $dark-border;
 }
 
 .nav a {
@@ -73,11 +73,11 @@ body[data-type="dark"] .nav .link.primary {
 
 .nav > ul.links > li > a:not(.primary):hover,
 .nav .link:not(.primary):hover {
-    background-color: $g1200;
+    background-color: $light-border;
 }
 
 body[data-type="dark"] .nav > ul.links > li > a:not(.primary):hover,
 body[data-type="dark"] .nav .link:not(.primary):hover {
     // background-color: $dark-bg;
-    background-color: $g200;
+    background-color: $dark-border;
 }

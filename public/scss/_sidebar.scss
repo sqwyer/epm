@@ -7,7 +7,7 @@
     gap: 1rem;
     flex-basis: 15%;
     padding-right: 1rem;
-    border-right: 2px solid $light-bg;
+    border-right: 2px solid $light-border;
 
     label {
         font-weight: bolder;
@@ -18,12 +18,12 @@
         width: 100%;
         display: flex;
         color: $darker;
-        border: 1px solid $g1200;
+        border: 1px solid $light-border;
         background: none;
 
         &:hover {
             color: $darkest;
-            background: $g1200;
+            background: $light-border;
             transition: 0.1s background ease;
         }
     }
@@ -41,14 +41,14 @@
 }
 
 body[data-type="dark"] .sidebar {
-    border-right: 2px solid $dark-bg;
+    border-right: 2px solid $dark-border;
 
     a {
-        border: 1px solid $g200;
+        border: 1px solid $dark-border;
         color: $lighter;
 
         &:hover {
-            background: $g200;
+            background: $dark-border;
         }
     }
 

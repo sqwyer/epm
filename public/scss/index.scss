@@ -199,12 +199,12 @@ body[data-type="dark"] h1 {
 }
 
 hr {
-    border: 1px solid $light-bg;
+    border: 1px solid $light-border;
     width: 100%;
 }
 
 body[data-type="dark"] hr {
-    border: 1px solid $dark-bg;
+    border: 1px solid $dark-border;
 }
 
 @media only screen and (max-width: 2000px) {
