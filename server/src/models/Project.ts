@@ -49,4 +49,12 @@ const ProjectSchema = new Schema<ProjectType>({
 })
 
 const ProjectModel = conn.model("Project", ProjectSchema, "projects")
-export { ProjectSchema, ProjectType, ProjectModel, Permission, ProjectRole, ProjectTask, ProjectMember }
+export {
+    ProjectSchema,
+    ProjectType,
+    ProjectModel,
+    Permission,
+    ProjectRole,
+    ProjectTask,
+    ProjectMember,
+}

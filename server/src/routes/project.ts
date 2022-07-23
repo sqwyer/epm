@@ -7,9 +7,8 @@ const ProjectRouter = Router()
 
 ProjectRouter.get("/:id/", protect, async (req: Request, res: Response) => {
     try {
-        const project: HydratedDocument<ProjectType> = await ProjectModel.findById(
-            req.params.id
-        ).exec()
+        const project: HydratedDocument<ProjectType> =
+            await ProjectModel.findById(req.params.id).exec()
         res.render("project", {
             user: req.user,
             project,
