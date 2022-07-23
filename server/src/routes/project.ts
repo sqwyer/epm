@@ -2,6 +2,7 @@ import { Router, Request, Response } from "express"
 import { HydratedDocument } from "mongoose"
 import { protect } from "../middleware/protected"
 import { ProjectModel, ProjectType } from "../models/Project"
+import { userHasPermission } from "../utils/userHasPermission"
 
 const ProjectRouter = Router()
 
@@ -37,10 +38,12 @@ ProjectRouter.get(
     async (req: Request, res: Response) => {
         const project = await GetProject(req, res)
         if (project) {
-            res.render("project/settings", {
-                user: req.user,
-                project,
-            })
+            if (userHasPermission(req.user.id, project, "manage_settings")) {
+                res.render("project/settings", {
+                    user: req.user,
+                    project,
+                })
+            } else res.redirect(`/project/${project.id}`)
         }
     }
 )

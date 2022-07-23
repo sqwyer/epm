@@ -20,7 +20,9 @@
         <a href="#">Tasks</a>
         <a href="#">Events</a>
         <a href="#">Progress</a>
+        {{#hasperm user.id project "manage_settings"}}
         <a href="/project/{{project.id}}/settings">Settings</a>
+        {{/hasperm}}
         {{!-- <p>Project pages will go here at some point.</p> --}}
         {{/ifem}}
     </div>

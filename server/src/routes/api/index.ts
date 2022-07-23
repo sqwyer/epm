@@ -1,30 +1,13 @@
 import { Router, Request, Response } from "express"
-import { HydratedDocument, Types } from "mongoose"
+import { HydratedDocument } from "mongoose"
 import { APICreateRouter } from "./create"
-import { Permission, ProjectModel, ProjectType } from "../../models/Project"
+import { ProjectModel, ProjectType } from "../../models/Project"
 import { protect } from "../../middleware/protected"
+import { userHasPermission } from "../../utils/userHasPermission"
 
 const APIRouter = Router()
 
 APIRouter.use("/create", APICreateRouter)
-
-function userHasPermission(
-    user: string,
-    project: ProjectType,
-    permission: Permission
-) {
-    const member = project.members.find((self) => self.id == user)
-    if (!member) return false
-    else if (member.id == project.owner) return true
-    else {
-        const role = project.roles.find((self) => self.id == member.role)
-
-        if (!role) return false
-        else if (role.permissions.includes(permission)) return true
-        else if (role.permissions.includes("*")) return true
-        else return false
-    }
-}
 
 APIRouter.get("/getproject", async (req: Request, res: Response) => {
     if (req.query.id) {
