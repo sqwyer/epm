@@ -1,5 +1,5 @@
 # epm
-A project manager for EAST Initiative projects.
+📚 A project manager for EAST Initiative projects.
 
 ### Cloning
 ```
@@ -12,7 +12,7 @@ cd epm
 npm install
 npm run serve
 ```
-> **Note:** You must create a `.env` file with the same variables as `.env.example` but with your own information. You should set `GOOGLE_CLIENT_REDRIECT` to `http://localhost:3000/auth/google/callback`
+> **Note:** You must create a `.env` file with the same variables as `.env.example` but with your own information. You should set `GOOGLE_CLIENT_REDRIECT` to `http://localhost:<PORT>/auth/google/callback`
 
 
 > **Note:** The site will be hosted on `http://localhost:3000`
