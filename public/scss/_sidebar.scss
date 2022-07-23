@@ -8,25 +8,51 @@
     flex-basis: 15%;
     padding-right: 1rem;
     border-right: 2px solid $light-bg;
+
+    label {
+        font-weight: bolder;
+    }
+
+    a {
+        @include btn.button;
+        width: 100%;
+        display: flex;
+        color: $darker;
+        border: 1px solid $g1200;
+        background: none;
+
+        &:hover {
+            color: $darkest;
+            background: $g1200;
+            transition: 0.1s background ease;
+        }
+    }
+
+    .pages {
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+
+        p {
+            color: $light;
+        }
+    }
 }
 
 body[data-type="dark"] .sidebar {
     border-right: 2px solid $dark-bg;
-}
 
-.sidebar a {
-    @include btn.button;
-    width: 100%;
-    display: flex;
-    color: $darker;
-}
+    a {
+        border: 1px solid $g200;
+        color: $lighter;
 
-.sidebar a:hover {
-    color: $darkest;
-}
+        &:hover {
+            background: $g200;
+        }
+    }
 
-body[data-type="dark"] .sidebar a {
-    background: $dark-bg;
-    // background: $g200;
-    color: $lighter;
+    label {
+        color: #fff;
+    }
 }

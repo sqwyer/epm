@@ -1,7 +1,27 @@
 <div class="col sidebar top">
-    <a href="/">Projects</a>
-    <a href="#">Calendar</a>
-    <a href="#">Progress</a>
-    <a href="#">Tasks</a>
-    <a href="#">Events</a>
+    <label>Pages</label>
+    <div class="pages">
+        <a href="/">Dashboard</a>
+        <a href="#">Calendar</a>
+        <a href="#">Progress</a>
+    </div>
+    <label>Project</label>
+    <div class="pages">
+        {{#ifem project}}
+        {{#ifem projects}}
+        <p>You are not currently in any projects.</p>
+        {{else}}
+        {{#each projects}}
+        <a href="/project/{{id}}">{{name}}</a>
+        {{/each}}
+        {{/ifem}}
+        {{else}}
+        <a href="/project/{{project.id}}">Homepage</a>
+        <a href="#">Tasks</a>
+        <a href="#">Events</a>
+        <a href="#">Progress</a>
+        <a href="#">Settings</a>
+        {{!-- <p>Project pages will go here at some point.</p> --}}
+        {{/ifem}}
+    </div>
 </div>
