@@ -43,7 +43,7 @@ APICreateRouter.post("/project", protect, (req: Request, res: Response) => {
                 } else {
                     try {
                         const user: HydratedDocument<UserType> =
-                            await UserModel.findOne({id: req.user.id}).exec()
+                            await UserModel.findOne({ id: req.user.id }).exec()
                         user.projects.push(project._id)
                         user.markModified("projects")
                         user.save((error?: any) => {

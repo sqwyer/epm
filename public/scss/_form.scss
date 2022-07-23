@@ -48,6 +48,11 @@ form {
         color: #000;
         font-weight: bold;
     }
+
+    p.light {
+        color: $light;
+        font-weight: normal;
+    }
 }
 
 body:not([data-type="dark"]) form p.desc {
@@ -80,5 +85,10 @@ body[data-type="dark"] form {
     input {
         background: $darkest;
         color: #fff;
+    }
+
+    p.light {
+        color: $light;
+        font-weight: normal;
     }
 }

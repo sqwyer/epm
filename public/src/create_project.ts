@@ -1,9 +1,9 @@
 const form = document.getElementById("form")
 
 type CreateResponse = {
-    status: "success"|"error",
-    error?: string,
-    project?: any,
+    status: "success" | "error"
+    error?: string
+    project?: any
     recommendedRedirect?: string
 }
 
@@ -18,8 +18,9 @@ async function submit() {
         desc: (<HTMLInputElement>document.getElementById("desc")).value || "",
     })
         .then((res: CreateResponse) => {
-            if(res.status == "success") window.open(res.recommendedRedirect, '_self')
-            else if(res.status == "error") console.error(res.error);
+            if (res.status == "success")
+                window.open(res.recommendedRedirect, "_self")
+            else if (res.status == "error") console.error(res.error)
             else console.error("Error loading...")
         })
         .catch((err) => console.error(err))

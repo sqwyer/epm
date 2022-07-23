@@ -5,14 +5,11 @@ import { ProjectModel, ProjectType } from "../models/Project"
 
 const ProjectRouter = Router()
 
-ProjectRouter.get("/:id/", protect, async (req: Request, res: Response) => {
+async function GetProject(req: Request, res: Response) {
     try {
         const project: HydratedDocument<ProjectType> =
             await ProjectModel.findById(req.params.id).exec()
-        res.render("project", {
-            user: req.user,
-            project,
-        })
+        return project
     } catch (err) {
         res.render("error", {
             user: req.user,
@@ -21,8 +18,31 @@ ProjectRouter.get("/:id/", protect, async (req: Request, res: Response) => {
                 msg: "The requested project could not be loaded.",
             },
         })
-        console.error(err)
+    }
+}
+
+ProjectRouter.get("/:id/", protect, async (req: Request, res: Response) => {
+    const project = await GetProject(req, res)
+    if (project) {
+        res.render("project", {
+            user: req.user,
+            project,
+        })
     }
 })
+
+ProjectRouter.get(
+    "/:id/settings",
+    protect,
+    async (req: Request, res: Response) => {
+        const project = await GetProject(req, res)
+        if (project) {
+            res.render("project/settings", {
+                user: req.user,
+                project,
+            })
+        }
+    }
+)
 
 export { ProjectRouter }

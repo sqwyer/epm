@@ -1,0 +1,14 @@
+@import "library";
+
+.project_settings_grid {
+    display: grid !important;
+    grid-template:
+        "name nameinput namesave"
+        "desc descinput descsave";
+    align-items: center;
+    column-gap: 1rem !important;
+}
+
+#project_id {
+    display: none;
+}

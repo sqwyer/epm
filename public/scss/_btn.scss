@@ -16,7 +16,7 @@
     color: #000000;
     block-size: 2.68rem;
     font-size: 1rem;
-    padding: 0.55rem 1.33rem 0.66rem;
+    padding: 0.55rem 1.33rem;
 }
 
 body[data-type="dark"] .btn {
@@ -24,13 +24,32 @@ body[data-type="dark"] .btn {
     color: #fff;
 }
 
-.btn.primary {
+.btn.primary,
+body[data-type="dark"] .btn.primary {
     background-color: $primary;
     color: #fff;
 }
 
-body[data-type="dark"] .btn.primary {
-    background-color: $primary;
+.btn.danger,
+body[data-type="dark"] .btn.danger {
+    background-color: $danger;
+    color: #fff;
+    transition: 0.1s background-color ease;
+
+    &:hover {
+        background-color: #f32013;
+    }
+
+    &:disabled {
+        &:hover {
+            background-color: $danger;
+        }
+    }
+}
+
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 @mixin button {
@@ -54,5 +73,10 @@ body[data-type="dark"] .btn.primary {
 
 @mixin primary {
     background-color: $primary;
+    color: #fff;
+}
+
+@mixin danger {
+    background-color: $danger;
     color: #fff;
 }

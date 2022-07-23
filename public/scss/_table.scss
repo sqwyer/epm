@@ -52,7 +52,7 @@ body[data-type="dark"] table tr:not(:last-child) td {
 
 table tr:not(:first-child):not(.nohover):hover {
     cursor: pointer;
-    background: $g1300;
+    background: rgba(0, 0, 0, 0.02);
 }
 
 body[data-type="dark"] table tr:not(:first-child):not(.nohover):hover {

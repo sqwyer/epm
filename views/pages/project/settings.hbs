@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>East Project Manager</title>
+
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    {{> nav}}
+    <div class="container short no-top">
+        <div class="row gapped">
+            {{> sidebar}}
+            <div class="col fill top">
+                <label class="page">@ Project / Homepage</label>
+                <h1>{{project.name}}</h1> <span id="project_id">{{project.id}}</span>
+                <br />
+                <hr />
+                <br />
+                <form action="javascript:void(0)">
+                    <div class="row gapped">
+                        <div class="project_settings_grid">
+
+                            <p>Project Name</p>
+                            <input class="block w-100" id="name-input" value="{{project.name}}">
+                            <button class="btn primary" id="name-save">Save</button>
+
+                            <p>Project Description</p>
+                            <input class="block w-100" id="desc-input" value="{{project.description}}">
+                            <button class="btn primary" id="desc-save">Save</button>
+
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <hr />
+                <br />
+                <form action="javascript:void(0)">
+                    <div class="row gapped">
+                        <div>
+                            <p>Transfer Ownership <strong></strong></p>
+                            <p class="light">Note that this cannot be undone, upon transfering ownership you will lose ownership access and permissions.</p>
+                            <select id="owner">
+                                <option value="{{user.id}}" selected>{{user.email}}</option>
+                            </select>
+                            <button class="btn danger" disabled>Transfer Ownership</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/post.js"></script>
+    <script src="/js/update_project.js"></script>
+    <script src="/js/project/settings.js"></script>
+</body>
+</html>
