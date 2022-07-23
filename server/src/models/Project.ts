@@ -33,6 +33,7 @@ type ProjectTask = {
 interface ProjectType {
     name: string
     members: ProjectMember[]
+    pending_members: string[]
     owner: string // will be googleid of user
     description: string
     roles: ProjectRole[]
@@ -42,6 +43,7 @@ interface ProjectType {
 const ProjectSchema = new Schema<ProjectType>({
     name: String,
     members: Array,
+    pending_members: Array,
     owner: String, // will be googleid of user
     description: String,
     roles: Array,

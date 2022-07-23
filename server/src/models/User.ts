@@ -13,6 +13,7 @@ interface UserType {
     emails: string[]
     picture: string
     projects: Types.ObjectId[]
+    pending_projects: Types.ObjectId[]
 }
 
 const UserSchema = new Schema<UserType>({
@@ -23,6 +24,7 @@ const UserSchema = new Schema<UserType>({
     emails: Array,
     picture: String,
     projects: Array,
+    pending_projects: Array,
 })
 
 const UserModel = conn.model("User", UserSchema, "users")

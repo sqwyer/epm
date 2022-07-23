@@ -23,6 +23,7 @@ passport.use(
                         emails: profile.emails,
                         picture: profile.picture,
                         projects: [],
+                        pending_projects: [],
                     })
                     newUser.save((err2) => {
                         if (err2) done(`Failed to save user: ${err2}`, null)

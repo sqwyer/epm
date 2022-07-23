@@ -30,6 +30,7 @@ APICreateRouter.post("/project", protect, (req: Request, res: Response) => {
             const project: any = new ProjectModel({
                 name: req.body.name,
                 members: [member],
+                pending_members: [],
                 owner: req.body.owner,
                 description: req.body.desc,
                 roles: [manager],
