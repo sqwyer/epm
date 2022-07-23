@@ -17,19 +17,6 @@ table td, table th {
 table tr {
     color: $darker;
 }
-
-table tr:not(:first-child):not(.nohover):hover {
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.02);
-}
-
-body[data-type="dark"] table tr:not(:first-child):not(.nohover):hover {
-    background: rgba(255, 255, 255, 0.01);
-}
-
-table tr:not(.nohover):hover {
-    background: $lightest;
-}
   
 table th {
     padding-top: .75rem;
@@ -61,3 +48,16 @@ body[data-type="dark"] table td {
 body[data-type="dark"] table tr:not(:last-child) td {
     border-bottom: 2px solid $darker;
 }
+
+table tr:not(:first-child):not(.nohover):hover {
+    cursor: pointer;
+    background: rgba(227, 231, 240, 0.5);
+}
+
+body[data-type="dark"] table tr:not(:first-child):not(.nohover):hover {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+// table tr:not(.nohover):hover {
+//     background: $lightest;
+// }
