@@ -42,6 +42,7 @@ if(process.env.NODE_ENV != 'production') app.use('/css', express.static(`${cwd}/
 else app.use('/css', express.static(`${cwd}/public/css`));
 
 app.use('/js', express.static(`${cwd}/public/dist`));
+app.use('/static', express.static(`${cwd}/public/static`));
 
 if(process.env.NODE_ENV != 'production') app.use(DevRouter)
 
