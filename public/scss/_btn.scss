@@ -1,7 +1,7 @@
-@import 'library';
+@import "library";
 
 .btn {
-    border-radius: .22rem;
+    border-radius: 0.22rem;
     align-items: center;
     align-content: center;
     cursor: pointer;
@@ -34,7 +34,7 @@ body[data-type="dark"] .btn.primary {
 }
 
 @mixin button {
-    border-radius: .22rem;
+    border-radius: 0.22rem;
     align-items: center;
     align-content: center;
     cursor: pointer;

@@ -1,13 +1,16 @@
-@use 'btn';
-@import 'library';
+@use "btn";
+@import "library";
 
 .nav {
     display: grid;
-    padding: .7rem 0;
+    padding: 0.7rem 0;
     font-size: 100%;
     margin: 0 20rem;
     /* gap: 1rem; */
-    grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr);
+    grid-template-columns: minmax(max-content, 1fr) auto minmax(
+            max-content,
+            1fr
+        );
     font-weight: 600;
     border-bottom: 2px solid $light-bg;
     align-items: center;
@@ -28,11 +31,12 @@ body[data-type="dark"] .nav a {
 }
 
 .nav.full-width {
-    margin: 0!important;
-    padding: .7rem 4rem;
+    margin: 0 !important;
+    padding: 0.7rem 4rem;
 }
 
-.nav > .center + *:last-child, .nav > .right {
+.nav > .center + *:last-child,
+.nav > .right {
     justify-content: right;
     float: right;
 }
@@ -43,32 +47,37 @@ body[data-type="dark"] .nav a {
     flex-direction: row;
 }
 
-.nav > ul.links > li > a, .nav .link {
+.nav > ul.links > li > a,
+.nav .link {
     @include btn.button;
     background-color: #fff;
-    padding: .33rem .89rem .44rem;
+    padding: 0.33rem 0.89rem 0.44rem;
     block-size: 2.6rem;
 }
 
-body[data-type="dark"] .nav > ul.links > li > a, body[data-type="dark"] .nav .link {
+body[data-type="dark"] .nav > ul.links > li > a,
+body[data-type="dark"] .nav .link {
     background-color: $darkest;
     color: #fff;
 }
 
-.nav .link.primary, body[data-type="dark"] .nav .link.primary {
+.nav .link.primary,
+body[data-type="dark"] .nav .link.primary {
     @include btn.button;
     @include btn.primary;
 
-    padding: .33rem .89rem .44rem;
+    padding: 0.33rem 0.89rem 0.44rem;
     block-size: 2.6rem;
     background-color: $primary;
 }
 
-.nav > ul.links > li > a:not(.primary):hover, .nav .link:not(.primary):hover {
-    background-color:$g1200;
+.nav > ul.links > li > a:not(.primary):hover,
+.nav .link:not(.primary):hover {
+    background-color: $g1200;
 }
 
-body[data-type="dark"] .nav > ul.links > li > a:not(.primary):hover, body[data-type="dark"] .nav .link:not(.primary):hover {
+body[data-type="dark"] .nav > ul.links > li > a:not(.primary):hover,
+body[data-type="dark"] .nav .link:not(.primary):hover {
     // background-color: $dark-bg;
     background-color: $g200;
 }

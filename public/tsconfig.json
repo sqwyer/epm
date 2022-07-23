@@ -5,5 +5,5 @@
         "target": "ES2019",
         "noImplicitAny": false,
         "removeComments": true
-    },
+    }
 }

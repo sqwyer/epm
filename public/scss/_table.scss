@@ -9,18 +9,19 @@ table {
 table tr:first-child {
     background: $lightest;
 }
-  
-table td, table th {
+
+table td,
+table th {
     padding: 1rem;
 }
 
 table tr {
     color: $darker;
 }
-  
+
 table th {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     text-align: left;
     color: $darkest;
 }

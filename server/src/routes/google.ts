@@ -1,18 +1,24 @@
-import { Router } from 'express';
-import * as passport from 'passport';
+import { Router } from "express"
+import * as passport from "passport"
 
-const authenticate = passport.authenticate.bind(passport);
+const authenticate = passport.authenticate.bind(passport)
 
-const GoogleRouter = Router();
+const GoogleRouter = Router()
 
-GoogleRouter.get('/auth/google', authenticate('google', { scope: ['email', 'profile'] }));
-GoogleRouter.get('/auth/google/callback', authenticate('google', {
-    successRedirect: '/',
-    failureRedirect: '/auth/google/failure'
-}));
-GoogleRouter.get('/auth/google/failure', (req, res) => {
-    if(req.user) res.redirect('/');
-    else res.render('../auth/fail');
-});
+GoogleRouter.get(
+    "/auth/google",
+    authenticate("google", { scope: ["email", "profile"] })
+)
+GoogleRouter.get(
+    "/auth/google/callback",
+    authenticate("google", {
+        successRedirect: "/",
+        failureRedirect: "/auth/google/failure",
+    })
+)
+GoogleRouter.get("/auth/google/failure", (req, res) => {
+    if (req.user) res.redirect("/")
+    else res.render("../auth/fail")
+})
 
 export { GoogleRouter }

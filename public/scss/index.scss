@@ -4,19 +4,20 @@
     box-sizing: border-box;
 }
 
-@import 'library';
-@import 'link';
-@import 'btn';
-@import 'nav';
-@import 'header';
-@import 'sidebar';
-@import 'table';
-@import 'question';
-@import 'dropdown';
-@import 'form';
+@import "library";
+@import "link";
+@import "btn";
+@import "nav";
+@import "header";
+@import "sidebar";
+@import "table";
+@import "question";
+@import "dropdown";
+@import "form";
 
 body {
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body[data-type="dark"] {
@@ -56,19 +57,19 @@ body[data-type="dark"] .theme-lighter {
 }
 
 .l {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
 }
 
 .r {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 .t {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 }
 
 .b {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .h-center {
@@ -114,7 +115,7 @@ body[data-type="dark"] .light {
         padding: 1rem 20rem;
     }
     &.no-top {
-        padding-top: 0!important;
+        padding-top: 0 !important;
     }
     .top {
         padding-top: 3rem;
@@ -206,7 +207,7 @@ body[data-type="dark"] hr {
     border: 1px solid $dark-bg;
 }
 
-@media only screen and (max-width: 2000px){
+@media only screen and (max-width: 2000px) {
     .container {
         padding: 3rem 15rem;
         &.short {
@@ -218,7 +219,7 @@ body[data-type="dark"] hr {
     }
 }
 
-@media only screen and (max-width: 1800px){
+@media only screen and (max-width: 1800px) {
     .container {
         padding: 3rem 12rem;
         &.short {
@@ -230,8 +231,9 @@ body[data-type="dark"] hr {
     }
 }
 
-@media only screen and (max-width: 1200px){
-    header, .w-header {
+@media only screen and (max-width: 1200px) {
+    header,
+    .w-header {
         max-width: 70vw;
     }
     header h1 {
@@ -248,8 +250,9 @@ body[data-type="dark"] hr {
     }
 }
 
-@media only screen and (max-width: 900px){
-    header, .w-header {
+@media only screen and (max-width: 900px) {
+    header,
+    .w-header {
         max-width: initial;
     }
     .container {

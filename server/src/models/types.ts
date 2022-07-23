@@ -1,47 +1,47 @@
-import { Types } from 'mongoose';
+import { Types } from "mongoose"
 
 type Permission =
-    '*'
-    |'manage_roles'
-    |'manage_tasks'
-    |'manage_events'
-    |'manage_members'
-    |'manage_settings';
+    | "*"
+    | "manage_roles"
+    | "manage_tasks"
+    | "manage_events"
+    | "manage_members"
+    | "manage_settings"
 
 type ProjectMember = {
-    id: string,
+    id: string
     role: Types.ObjectId
 }
 
 type ProjectRole = {
-    label: string,
-    id: Types.ObjectId,
+    label: string
+    id: Types.ObjectId
     permissions: Permission[]
 }
 
 type ProjectTask = {
-    label: string,
-    id: Types.ObjectId,
-    assigned: string[],
+    label: string
+    id: Types.ObjectId
+    assigned: string[]
     due: string
 }
 
 interface Project {
-    name: string,
-    members: ProjectMember[],
-    owner: string, // will be googleid of user
-    description: string,
-    roles: ProjectRole[],
+    name: string
+    members: ProjectMember[]
+    owner: string // will be googleid of user
+    description: string
+    roles: ProjectRole[]
     tasks: ProjectTask[]
 }
 
 interface User {
-    id: string,
-    displayName: string,
-    language: string,
-    email: string,
-    emails: string[],
-    picture: string,
+    id: string
+    displayName: string
+    language: string
+    email: string
+    emails: string[]
+    picture: string
     projects: Types.ObjectId[]
 }
 

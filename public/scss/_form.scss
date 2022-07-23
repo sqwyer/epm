@@ -1,9 +1,9 @@
-@use 'btn';
-@import 'library';
+@use "btn";
+@import "library";
 
 form {
     strong {
-        color: red!important;
+        color: red !important;
         font-weight: inherit;
     }
 
@@ -13,9 +13,10 @@ form {
         font-size: 0.9rem;
     }
 
-    input, select {
+    input,
+    select {
         @include btn.button;
-    
+
         font-size: 0.9rem;
         border: 1px solid $g1000;
     }
@@ -53,7 +54,6 @@ body:not([data-type="dark"]) form p.desc {
     color: $g800;
 }
 
-
 body[data-type="dark"] form {
     p:not(.desc) {
         color: #fff;
@@ -63,7 +63,8 @@ body[data-type="dark"] form {
         color: $g600;
     }
 
-    input, select {
+    input,
+    select {
         border: 1px solid $g300;
         // background-color: #000;
     }
@@ -80,4 +81,4 @@ body[data-type="dark"] form {
         background: $darkest;
         color: #fff;
     }
-} 
+}
