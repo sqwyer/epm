@@ -3,11 +3,11 @@ table {
     border-spacing: 0;
     width: 100%;
     border-radius: 4px;
-    border: 2px solid $lightest;
+    border: 2px solid $g1200;
 }
 
 table tr:first-child {
-    background: $lightest;
+    background: $g1200;
 }
 
 table td,
@@ -27,7 +27,7 @@ table th {
 }
 
 table tr:not(:last-child) td {
-    border-bottom: 2px solid $lightest;
+    border-bottom: 2px solid $g1200;
 }
 
 body[data-type="dark"] table {
@@ -52,7 +52,7 @@ body[data-type="dark"] table tr:not(:last-child) td {
 
 table tr:not(:first-child):not(.nohover):hover {
     cursor: pointer;
-    background: rgba(227, 231, 240, 0.5);
+    background: $g1300;
 }
 
 body[data-type="dark"] table tr:not(:first-child):not(.nohover):hover {

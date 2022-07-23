@@ -43,7 +43,7 @@ APICreateRouter.post("/project", protect, (req: Request, res: Response) => {
                 } else {
                     try {
                         const user: HydratedDocument<UserType> =
-                            await UserModel.findById(req.user.id).exec()
+                            await UserModel.findOne({id: req.user.id}).exec()
                         user.projects.push(project._id)
                         user.markModified("projects")
                         user.save((error?: any) => {
@@ -58,7 +58,7 @@ APICreateRouter.post("/project", protect, (req: Request, res: Response) => {
                                 })
                             }
                         })
-                    } catch (err) {
+                    } catch (error) {
                         err("An error occured saving to the database.")
                         console.error(error)
                     }
