@@ -15,6 +15,7 @@
 @import "dropdown";
 @import "form";
 @import "project_settings_grid";
+@import "project_members";
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -100,6 +101,7 @@ body[data-type="dark"] a {
 
 .light {
     color: $light;
+    font-weight: normal;
 }
 
 body[data-type="dark"] .light {
@@ -196,6 +198,10 @@ h3 {
 }
 
 body[data-type="dark"] h1 {
+    color: #ffffff;
+}
+
+body[data-type="dark"] h2 {
     color: #ffffff;
 }
 

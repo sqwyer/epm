@@ -21,36 +21,41 @@
                 <br />
                 <hr />
                 <br />
-                {{!-- <form action="javascript:void(0)">
-                    <div class="row gapped">
-                        <div class="project_settings_grid">
+                <h2>Project Members</h2>
+                <p>View and manage current project members.</p>
+                <br />
+                {{#each members}}
+                    <form class="row gapped">
+                        <p>{{#ifeq email ../user.email}}<i class="light">(You) </i>{{/ifeq}}{{email}}</p>
+                    </form>
+                {{/each}}
 
-                            <p>Project Name</p>
-                            <input class="block w-100" id="name-input" value="{{project.name}}">
-                            <button class="btn primary" id="name-save">Save</button>
-
-                            <p>Project Description</p>
-                            <input class="block w-100" id="desc-input" value="{{project.description}}">
-                            <button class="btn primary" id="desc-save">Save</button>
-
-                        </div>
-                    </div>
-                </form>
                 <br />
                 <hr />
                 <br />
-                <form action="javascript:void(0)">
-                    <div class="row gapped">
-                        <div>
-                            <p>Transfer Ownership <strong></strong></p>
-                            <p class="light">Note that this cannot be undone, upon transfering ownership you will lose ownership access and permissions.</p>
-                            <select id="owner">
-                                <option value="{{user.id}}" selected>{{user.email}}</option>
+
+                {{#if canModify}}
+                <form action="javascript:void(0)" class="invite_form">
+                    <h2>Invite to project</h2>
+                    <p class="light">Invite new people to join and collaborate on this project!</p>
+                    {{!-- <div class="row gapped"> --}}
+                        <div class="project_invite_grid">
+
+                            <label class="g1">Email</label>
+                            <input class="block w-100 g2" id="email-input" placeholder="johndoe@gmail.com">
+
+                            <label class="g3">Role</label>
+                            {{!-- <input class="block w-100 g4" id="role-input" placeholder="Member"> --}}
+                            <select class="block w-100 g4" id="role-input">
+                                <option selected>Manager</option>
                             </select>
-                            <button class="btn danger" disabled>Transfer Ownership</button>
+
+                            <button class="btn primary g5">Send</button>
                         </div>
-                    </div>
-                </form> --}}
+                    {{!-- </div> --}}
+                </form>
+                {{/if}}
+               
             </div>
         </div>
     </div>
