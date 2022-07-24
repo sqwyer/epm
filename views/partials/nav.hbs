@@ -14,10 +14,11 @@
                 {{!-- <a>New Team</a> --}}
             </div>
         </div>
-        <a class="link square" href="#">
+        <a class="link square notifications" href="#">
             <span class="material-symbols-outlined">
                 notifications
             </span>
+            {{#ifem user.notifications}}{{else}}<span class="noti"></span>{{/ifem}}
         </a>
         <a class="link square theme-toggle" href="#">
             <span class="material-symbols-outlined">

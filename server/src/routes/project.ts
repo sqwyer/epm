@@ -31,7 +31,7 @@ ProjectRouter.get("/:id/", protect, async (req: Request, res: Response) => {
             project,
         })
     } else {
-        res.redirect('/')
+        res.redirect("/")
     }
 })
 
@@ -48,7 +48,7 @@ ProjectRouter.get(
                 })
             } else res.redirect(`/project/${project.id}`)
         } else {
-            res.redirect('/')
+            res.redirect("/")
         }
     }
 )
@@ -58,24 +58,37 @@ ProjectRouter.get(
     protect,
     async (req: Request, res: Response) => {
         const project = await GetProject(req, res)
-        if(project) {
-            const members = [];
-            for(let i = 0; i < project.members.length; i++) {
+        if (project) {
+            const members = []
+            for (let i = 0; i < project.members.length; i++) {
                 try {
-                    const member = await UserModel.findOne({id: project.members[i].id})
-                    members.push(member);
-                } catch(err) {
-                    console.error(err);
+                    const user = await UserModel.findOne({
+                        id: project.members[i].id,
+                    })
+                    const member = project.members.find(
+                        (self) => self.id == user.id
+                    )
+                    const role = project.roles.find((self) =>
+                        self.id.equals(member.role)
+                    )
+                    user.role = role
+                    members.push(user)
+                } catch (err) {
+                    console.error(err)
                 }
             }
             res.render("project/members", {
                 user: req.user,
                 project,
                 members,
-                canModify: userHasPermission(req.user.id, project, "manage_members")
+                canModify: userHasPermission(
+                    req.user.id,
+                    project,
+                    "manage_members"
+                ),
             })
         } else {
-            res.redirect('/')
+            res.redirect("/")
         }
     }
 )

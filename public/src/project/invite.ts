@@ -1,20 +1,30 @@
-async function sendInvite(project: string, user: string, role: string) {
-    await postData(`/project/${project}/invite/send`, {
-        user,
-        role
+const project = document.getElementById("project_id").innerText
+
+async function sendInvite(email: string, role: string) {
+    await postData(`/api/project/${project}/invite/send`, {
+        email,
+        role,
     })
-        .then(res => {
-            if(res.error) {
+        .then((res) => {
+            if (res.error) {
                 console.error(res.error)
-            }
-            else {
-                location.reload();
+            } else {
+                location.reload()
             }
         })
-        .catch(err => {
-            console.error(err);
+        .catch((err) => {
+            console.error(err)
         })
 }
+
+document
+    .getElementById("send-invite")
+    .addEventListener("click", async function () {
+        await sendInvite(
+            (<HTMLInputElement>document.getElementById("email-input")).value,
+            (<HTMLSelectElement>document.getElementById("role-input")).value
+        )
+    })
 
 // async function cancelInvite(project: string, user: string) {
 //     await postData(`/project/${project}/invite/cancel`, {

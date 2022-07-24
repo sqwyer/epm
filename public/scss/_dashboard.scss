@@ -1,0 +1,29 @@
+.pending_projects_banner {
+    padding: 1rem;
+    border: 2px solid $g1200;
+    // background-color: $primary;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+
+    h1 {
+        font-weight: bold;
+        font-size: 80%;
+    }
+
+    a {
+        color: $light;
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        background: rgba(0, 0, 0, 0.05);
+    }
+}
+
+body[data-type="dark"] {
+    .pending_projects_banner {
+        border: 2px solid $dark-border;
+    }
+}

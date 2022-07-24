@@ -53,7 +53,7 @@ app.use("/static", express.static(`${cwd}/public/static`))
 
 if (process.env.NODE_ENV != "production") app.use(DevRouter)
 
-app.get("/", protect, async (req, res) => {
+app.get("/", protect, async (req: express.Request, res: express.Response) => {
     await User.getProjects(req.user.id)
         .then((projects) => {
             res.render("dashboard", { user: req.user, projects })
@@ -64,7 +64,37 @@ app.get("/", protect, async (req, res) => {
         })
 })
 
-app.post("/auth/logout", (req, res) => {
+app.get(
+    "/invites",
+    protect,
+    async (req: express.Request, res: express.Response) => {
+        await User.getProjects(req.user.id)
+            .then(async (projects) => {
+                await User.getInvites(req.user.id)
+                    .then((invites) => {
+                        res.render("invites", {
+                            user: req.user,
+                            projects,
+                            invites,
+                        })
+                    })
+                    .catch((err) => {
+                        console.error(err)
+                        res.render("invites", {
+                            user: req.user,
+                            projects,
+                            invites: [],
+                        })
+                    })
+            })
+            .catch((err) => {
+                console.error(err)
+                res.render("invites", { user: req.user, projects: [] })
+            })
+    }
+)
+
+app.post("/auth/logout", (req: express.Request, res: express.Response) => {
     req.logout((err) => {
         if (err) res.redirect("/?err=Failed to log out.")
         else res.redirect("/auth/google")

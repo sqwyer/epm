@@ -17,6 +17,13 @@
             {{> sidebar}}
             <div class="col fill top">
                 <label class="page">@ Dashboard</label>
+                {{!-- {{#ifem user.pending_projects}} --}}
+                {{!-- {{else}} --}}
+                <div class="pending_projects_banner">
+                    <h2>You've been invited to {{#ifeq user.pending_projects.length 1}}a{{else}}{{user.pending_projects.length}}{{/ifeq}} projects!</h2>
+                    <a>View invite{{#ifeq user.pending_projects.length 1}}{{else}}s{{/ifeq}}</a>
+                </div>
+                {{!-- {{/ifem}} --}}
                 <table class="T">
                     <tr>
                         <th>Name</th>

@@ -22,13 +22,36 @@
                 <hr />
                 <br />
                 <h2>Project Members</h2>
-                <p>View and manage current project members.</p>
+                <p class="light">View and manage current project members.</p>
                 <br />
-                {{#each members}}
+                <div class="project_members">
+                    {{#each members}}
                     <form class="row gapped">
-                        <p>{{#ifeq email ../user.email}}<i class="light">(You) </i>{{/ifeq}}{{email}}</p>
+                        {{#ifeq id ../user.id}}
+                        <div>
+                            <p><i class="light">(You) </i></p>
+                            <p></p>
+                        </div>
+                        {{/ifeq}}
+                        <div>
+                            <p>{{displayName}}</p>
+                            <p class="light">{{email}}</p>
+                        </div>
+                        <div style="margin-left: auto">
+                            <select>
+                                {{#each ../project.roles}}
+                                <option value="{{id}}" {{#ifeq ../role.id id}}selected{{/ifeq}}>{{label}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn danger" {{#ifeq id ../user.id}} disabled{{/ifeq}}>
+                                Remove
+                            </button>
+                        </div>
                     </form>
-                {{/each}}
+                    {{/each}}
+                </div>
 
                 <br />
                 <hr />
@@ -47,10 +70,12 @@
                             <label class="g3">Role</label>
                             {{!-- <input class="block w-100 g4" id="role-input" placeholder="Member"> --}}
                             <select class="block w-100 g4" id="role-input">
-                                <option selected>Manager</option>
+                                {{#each project.roles}}
+                                <option value="{{id}}">{{label}}</option>
+                                {{/each}}
                             </select>
 
-                            <button class="btn primary g5">Send</button>
+                            <button id="send-invite" class="btn primary g5">Send</button>
                         </div>
                     {{!-- </div> --}}
                 </form>
@@ -63,6 +88,6 @@
     <script src="/js/index.js"></script>
     <script src="/js/post.js"></script>
     <script src="/js/update_project.js"></script>
-    <script src="/js/project/settings.js"></script>
+    <script src="/js/project/invite.js"></script>
 </body>
 </html>

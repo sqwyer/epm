@@ -4,10 +4,12 @@ import { APICreateRouter } from "./create"
 import { ProjectModel, ProjectType } from "../../models/Project"
 import { protect } from "../../middleware/protected"
 import { userHasPermission } from "../../utils/userHasPermission"
+import { APIProjectRouter } from "./project"
 
 const APIRouter = Router()
 
 APIRouter.use("/create", APICreateRouter)
+APIRouter.use("/project", APIProjectRouter)
 
 APIRouter.get("/getproject", async (req: Request, res: Response) => {
     if (req.query.id) {
