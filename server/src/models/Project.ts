@@ -33,7 +33,7 @@ type ProjectTask = {
 interface ProjectType {
     name: string
     members: ProjectMember[]
-    pending_members: string[]
+    pending_members: ProjectMember[]
     owner: string // will be googleid of user
     description: string
     roles: ProjectRole[]

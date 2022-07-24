@@ -29,6 +29,8 @@ ProjectRouter.get("/:id/", protect, async (req: Request, res: Response) => {
             user: req.user,
             project,
         })
+    } else {
+        res.redirect('/')
     }
 })
 
@@ -44,8 +46,10 @@ ProjectRouter.get(
                     project,
                 })
             } else res.redirect(`/project/${project.id}`)
+        } else {
+            res.redirect('/')
         }
     }
 )
 
-export { ProjectRouter }
+export { ProjectRouter, GetProject }
