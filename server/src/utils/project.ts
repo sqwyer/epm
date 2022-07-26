@@ -1,7 +1,5 @@
 import { HydratedDocument, Types } from "mongoose"
-import { Project as ProjectType } from "../models/types"
-import { Project as ProjectModel } from "../models/Project"
-// import { Authorized } from "./Authorized";
+import { ProjectModel, ProjectType } from "../models/Project"
 
 type pid = Types.ObjectId
 
