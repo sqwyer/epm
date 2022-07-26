@@ -23,8 +23,6 @@ const cwd = process.cwd()
 const pInit = passport.initialize.bind(passport)
 const pSession = passport.session.bind(passport)
 
-hbs.registerPartials(`${cwd}/views/partials`)
-
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -38,6 +36,14 @@ app.set("view engine", "hbs")
 app.set("views", `${cwd}/views/pages`)
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+hbs.registerPartials(`${cwd}/views/partials`)
+
+// app.engine('hbs', hbs.express4({
+//     partialsDir: `${cwd}/views/partials`
+//   }));
+//   app.set('view engine', 'hbs');
+
 
 app.use(GoogleRouter)
 app.use("/api", APIRouter)

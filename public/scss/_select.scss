@@ -1,0 +1,9 @@
+@use 'btn';
+@import 'library';
+
+select {
+    @include btn.button;
+
+    border: 1px solid $g1000;
+    font-size: 0.9rem;
+}

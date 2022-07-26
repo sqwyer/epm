@@ -3,9 +3,9 @@ import { protect } from "../../middleware/protected"
 import { GetProject } from "../project"
 import { UserModel } from "../../models/User"
 
-const UserRouter = Router()
+const APIUserRouter = Router()
 
-UserRouter.post(
+APIUserRouter.post(
     "/invite/accept/:id",
     protect,
     async (req: Request, res: Response) => {
@@ -96,7 +96,7 @@ UserRouter.post(
     }
 )
 
-UserRouter.post(
+APIUserRouter.post(
     "/invite/deny/:id",
     protect,
     async (req: Request, res: Response) => {
@@ -175,4 +175,4 @@ UserRouter.post(
     }
 )
 
-export { UserRouter }
+export { APIUserRouter }

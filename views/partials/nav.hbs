@@ -20,6 +20,25 @@
             </span>
             {{#ifem user.notifications}}{{else}}<span class="noti"></span>{{/ifem}}
         </a>
+        <div class="dropdown">
+            <a class="link square drop-preview " href="#">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                {{#ifem invites}}
+                {{else}}
+                <span class="noti"></span>
+                {{/ifem}}
+            </a>
+            {{#ifem invites}}
+            {{else}}
+            <div class="drops">
+                {{#each invites}}
+                    <a href="/create/project"><span class="light">You've been invited to join</span> <b style="color:#000">{{name}}</b></a>
+                {{/each}}
+            </div>
+            {{/ifem}}
+        </div>
         <a class="link square theme-toggle" href="#">
             <span class="material-symbols-outlined">
                 dark_mode

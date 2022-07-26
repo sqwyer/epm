@@ -21,15 +21,41 @@
                 <br />
                 <hr />
                 <br />
+                <div class="invites">
+                {{!-- {{#console user}}{{/console}} --}}
+                {{!-- {{#each user.pending_projects}}
+                {{#log}}{{this}}{{/log}}
+                {{#project this}}
+                    {{#log}}{{this}}{{/log}}
+                    <div class="invite row gapped">
+                        <p>{{project.name}}</p>
+                        <button class="btn primary">
+                            Join
+                        </button>
+                        <button class="btn danger" onclick="">
+                            Ignore
+                        </button>
+                    </div>
+                {{/project}}
+                {{/each}} --}}
                 {{#each invites}}
-                <div>
-                    {{name}}
-                </div>
+                    <div class="invite row gapped">
+                        <p>{{name}}</p>
+                        <button class="btn primary">
+                            Join
+                        </button>
+                        <button class="btn danger" onclick="">
+                            Ignore
+                        </button>
+                    </div>
                 {{/each}}
+                </div>
             </div>
         </div>
     </div>
 
     <script src="/js/index.js"></script>
+    <script src="/js/post.js"></script>
+    <script src="/js/invites.js"></script>
 </body>
 </html>

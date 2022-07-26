@@ -1,10 +1,10 @@
 @import "library";
 
-.btn {
+@mixin button {
     border-radius: 0.22rem;
     align-items: center;
-    align-content: center;
     text-align: center;
+    align-content: center;
     cursor: pointer;
     text-decoration: none;
     display: inline-flex;
@@ -20,64 +20,55 @@
     padding: 0.55rem 1.33rem;
 }
 
-body[data-type="dark"] .btn {
-    background-color: $dark-bg;
-    color: #fff;
-}
-
-.btn.primary,
-body[data-type="dark"] .btn.primary {
-    background-color: $primary;
-    color: #fff;
-}
-
-.btn.danger,
-body[data-type="dark"] .btn.danger {
-    background-color: $danger;
-    color: #fff;
-    transition: 0.1s background-color ease;
-
-    &:hover {
-        background-color: #f32013;
-    }
-
-    &:disabled {
-        &:hover {
-            background-color: $danger;
-        }
-    }
-}
-
-.btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-@mixin button {
-    border-radius: 0.22rem;
-    align-items: center;
-    align-content: center;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    border: none;
-    outline: none;
-    font-weight: 600;
-    min-inline-size: min-content;
-    width: fit-content;
-    background-color: $light-bg;
-    color: #000000;
-    block-size: 2.68rem;
-    font-size: 1rem;
-    padding: 0.55rem 1.33rem 0.66rem;
-}
-
 @mixin primary {
-    background-color: $primary;
+    background-color: $primary-light;
     color: #fff;
 }
 
 @mixin danger {
     background-color: $danger;
     color: #fff;
+}
+
+.btn {
+    @include button;
+
+    &.primary {
+        @include primary;
+        &:hover {
+            box-shadow: 0 0 10px 1px rgba($primary-light, 0.7);
+        }
+    }
+
+    &.danger {
+        @include danger;
+        &:hover {
+            box-shadow: 0 0 10px 1px rgba($danger, 0.7);
+        }
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    transition: 0.2s box-shadow ease;
+}
+
+body[data-type="dark"] .btn {
+    &:not(.primary):not(.danger) {
+        background-color: $dark-bg;
+        color: #fff;
+    }
+
+    @mixin primary {
+        background-color: $primary-dark;
+    }
+
+    &.primary {
+        @include primary;
+        &:hover {
+            box-shadow: 0 0 10px 1px rgba($primary-dark, 0.7);
+        }
+    }
 }
