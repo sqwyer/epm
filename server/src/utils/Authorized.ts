@@ -1,11 +1,11 @@
-import { User } from "../models/User";
-import { User as UserType } from '../models/types';
-import { HydratedDocument } from "mongoose";
+import { User } from "../models/User"
+import { User as UserType } from "../models/types"
+import { HydratedDocument } from "mongoose"
 
 class Authorized {
-    public user: HydratedDocument<UserType>;
+    public user: HydratedDocument<UserType>
     /**
-     * 
+     *
      * @param {string} id Google ID
      * @returns Promise
      * @example
@@ -19,15 +19,18 @@ class Authorized {
      */
     async setUser(id: string) {
         return new Promise(async (resolve: Function, reject: Function) => {
-            await User.findOne({id}, (err: any, user: HydratedDocument<UserType>) => {
-                if(err) {
-                    console.error(err);
-                    reject(err);
-                } else if(user) {
-                    this.user = user;
-                    resolve(user);
-                } else reject('User does not exist.')
-            })
+            await User.findOne(
+                { id },
+                (err: any, user: HydratedDocument<UserType>) => {
+                    if (err) {
+                        console.error(err)
+                        reject(err)
+                    } else if (user) {
+                        this.user = user
+                        resolve(user)
+                    } else reject("User does not exist.")
+                }
+            )
         })
     }
 }

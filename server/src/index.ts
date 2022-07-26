@@ -44,7 +44,6 @@ hbs.registerPartials(`${cwd}/views/partials`)
 //   }));
 //   app.set('view engine', 'hbs');
 
-
 app.use(GoogleRouter)
 app.use("/api", APIRouter)
 app.use("/create", CreateRouter)

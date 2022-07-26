@@ -40,7 +40,7 @@ hbs.registerHelper("hasperm", function (arg1, arg2, arg3, options) {
 //     }
 // })
 
-hbs.registerHelper('log', function(content) {
-    console.log(content.fn(this));
-    return '';
-});
+hbs.registerHelper("log", function (content) {
+    console.log(content.fn(this))
+    return ""
+})

@@ -1,5 +1,5 @@
-@use 'btn';
-@import 'library';
+@use "btn";
+@import "library";
 
 select {
     @include btn.button;
